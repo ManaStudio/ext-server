@@ -1,9 +1,11 @@
-const cors = require('cors');
-app.use(cors());
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
-const app = express();
+
+const app = express(); // ← app est défini ici, avant toute utilisation
+
+app.use(cors());
 app.use(bodyParser.json());
 
 app.post('/generer-scene', async (req, res) => {
