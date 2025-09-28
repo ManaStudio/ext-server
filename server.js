@@ -7,7 +7,20 @@ const app = express(); // ← app est défini ici, avant toute utilisation
 
 app.use(cors());
 app.use(bodyParser.json());
+const styles = [
+  'science-fiction',
+  'cyberpunk',
+  'médiéval',
+  'heroic fantasy',
+  'post-apocalyptique',
+  'steampunk',
+  'space opera'
+];
 
+function choisirStyle() {
+  const index = Math.floor(Math.random() * styles.length);
+  return styles[index];
+}
 app.post('/generer-scene', async (req, res) => {
   const { langue, choix } = req.body;
 
